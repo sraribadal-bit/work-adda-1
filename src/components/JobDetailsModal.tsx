@@ -29,50 +29,50 @@ export const JobDetailsModal: React.FC<JobDetailsModalProps> = ({ job, onClose, 
   );
 
   return (
-    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 z-50 overflow-y-auto">
-      <div className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-6 relative max-h-[92vh] overflow-y-auto border border-slate-200">
+    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-2.5 sm:p-4 z-50 overflow-y-auto">
+      <div className="bg-white rounded-3xl max-w-2xl w-full p-4 sm:p-8 shadow-2xl space-y-5 sm:space-y-6 relative max-h-[90vh] overflow-y-auto border border-slate-200">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 p-2 rounded-full transition"
+          className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 p-2 rounded-full transition z-10"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
 
         {!submitted ? (
           <>
             {/* Header Area */}
-            <div className="space-y-3 border-b border-slate-100 pb-5">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xs font-black bg-amber-100 text-amber-950 px-3 py-1 rounded-xl border border-amber-300">
+            <div className="space-y-3 border-b border-slate-100 pb-4 sm:pb-5 pt-1">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pr-8">
+                <span className="text-[11px] sm:text-xs font-black bg-amber-100 text-amber-950 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-xl border border-amber-300">
                   {job.category}
                 </span>
-                <span className="text-xs font-bold bg-slate-100 text-slate-800 px-3 py-1 rounded-xl">
+                <span className="text-[11px] sm:text-xs font-bold bg-slate-100 text-slate-800 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-xl">
                   {job.workType}
                 </span>
-                <span className="text-[11px] text-slate-400 ml-auto font-medium">
+                <span className="text-[10px] sm:text-[11px] text-slate-400 ml-auto font-medium">
                   Posted {job.postedDate}
                 </span>
               </div>
 
-              <h2 className="text-xl sm:text-2xl font-black text-slate-900 leading-snug">
+              <h2 className="text-lg sm:text-2xl font-black text-slate-900 leading-snug">
                 {job.title}
               </h2>
 
               {/* Compensation Showcase */}
-              <div className="flex flex-wrap items-center justify-between gap-3 bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 p-4 rounded-2xl border border-amber-200">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 p-3.5 sm:p-4 rounded-2xl border border-amber-200">
                 <div>
-                  <p className="text-xs text-amber-900 font-bold uppercase tracking-wider">Assured Payout</p>
-                  <p className="text-2xl sm:text-3xl font-black text-amber-700">
+                  <p className="text-[10px] sm:text-xs text-amber-900 font-bold uppercase tracking-wider">Assured Payout</p>
+                  <p className="text-xl sm:text-3xl font-black text-amber-700">
                     ₹{job.payment}
                     <span className="text-xs font-bold text-slate-600 ml-1">/ {job.paymentType}</span>
                   </p>
                 </div>
 
-                <div className="flex items-center gap-2 bg-emerald-50 border border-emerald-200 px-3 py-2 rounded-xl text-emerald-800 text-xs font-bold">
-                  <QrCode className="w-4 h-4 text-emerald-600" />
-                  <span>Instant UPI Settlement Enabled</span>
+                <div className="flex items-center gap-2 bg-emerald-50 border border-emerald-200 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl text-emerald-800 text-[11px] sm:text-xs font-bold">
+                  <QrCode className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Instant UPI Settlement</span>
                 </div>
               </div>
             </div>
@@ -132,7 +132,7 @@ export const JobDetailsModal: React.FC<JobDetailsModalProps> = ({ job, onClose, 
                   href={`https://wa.me/${job.employerPhone}?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-extrabold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 px-3 py-1.5 rounded-xl transition"
+                  className="inline-flex items-center gap-1.5 text-xs font-extrabold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 active:scale-95 hover:scale-105 border border-emerald-300 px-3 py-1.5 rounded-xl transition-all duration-200"
                 >
                   <MessageCircle className="w-4 h-4 fill-emerald-600 text-white" />
                   Chat on WhatsApp
@@ -164,7 +164,7 @@ export const JobDetailsModal: React.FC<JobDetailsModalProps> = ({ job, onClose, 
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-black py-3 rounded-2xl shadow-lg shadow-amber-600/25 text-sm transition"
+                className="w-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:via-orange-600 hover:to-amber-700 text-white font-black py-3.5 rounded-2xl shadow-lg shadow-amber-600/25 hover:shadow-xl hover:shadow-amber-500/35 text-sm transition-all duration-200 hover:scale-[1.01] active:scale-98 animate-shimmer-sweep btn-glow"
               >
                 Apply for Task — ₹{job.payment} ({job.paymentType})
               </button>
@@ -173,7 +173,7 @@ export const JobDetailsModal: React.FC<JobDetailsModalProps> = ({ job, onClose, 
         ) : (
           /* Confirmation Success State */
           <div className="text-center py-8 space-y-4">
-            <div className="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto shadow-inner">
+            <div className="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto shadow-inner animate-bounce">
               <CheckCircle2 className="w-10 h-10" />
             </div>
             <h3 className="text-2xl font-black text-slate-900">Application Submitted!</h3>
@@ -186,14 +186,14 @@ export const JobDetailsModal: React.FC<JobDetailsModalProps> = ({ job, onClose, 
                 href={`https://wa.me/${job.employerPhone}?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs px-5 py-2.5 rounded-xl shadow-md flex items-center gap-1.5 transition"
+                className="bg-emerald-600 hover:bg-emerald-700 active:scale-95 hover:scale-105 text-white font-black text-xs px-5 py-2.5 rounded-xl shadow-md flex items-center gap-1.5 transition-all duration-200"
               >
                 <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
                 Contact Employer on WhatsApp
               </a>
               <button
                 onClick={onClose}
-                className="bg-slate-900 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow transition"
+                className="bg-slate-900 hover:bg-slate-800 active:scale-95 hover:scale-105 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow transition-all duration-200"
               >
                 Close & Browse More
               </button>

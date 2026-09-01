@@ -70,7 +70,7 @@ export const PostWorkView: React.FC<PostWorkViewProps> = ({ onJobCreated }) => {
           <div className="pt-4">
             <button
               onClick={() => setIsSuccess(false)}
-              className="bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-6 py-3 rounded-xl transition"
+              className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 active:scale-95 hover:scale-105 text-white font-extrabold text-xs px-6 py-3 rounded-xl shadow-md transition-all duration-200"
             >
               Post Another Task
             </button>
@@ -286,9 +286,9 @@ export const PostWorkView: React.FC<PostWorkViewProps> = ({ onJobCreated }) => {
 
             <button
               type="submit"
-              className="w-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold py-3.5 rounded-xl shadow-lg transition text-sm flex items-center justify-center gap-2"
+              className="group w-full bg-slate-900 hover:bg-slate-800 active:scale-98 hover:scale-[1.01] text-white font-extrabold py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-sm flex items-center justify-center gap-2"
             >
-              <PlusCircle className="w-4 h-4" />
+              <PlusCircle className="w-4 h-4 group-hover:rotate-90 transition-transform duration-300 text-amber-400" />
               Publish Work Requirement
             </button>
 
